@@ -2,30 +2,47 @@
   "name": "docx2str",
   "version": "0.0.0",
   "description": "A simple library that converts .docx files to plain text in the browser (works also with node)",
-  "exports":{
-	".":{
-		"import":{
-			"default": "./lib/esm/index.js",
-			"types": "./lib/esm/index.d.ts"
-		},
-		"require":{
-			"default": "./lib/cjs/index.cjs",
-			"types": "./lib/cjs/index.d.ts"
-		}
-	}
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./lib/esm/index.js",
+        "types": "./lib/esm/index.d.ts"
+      },
+      "require": {
+        "default": "./lib/cjs/index.cjs",
+        "types": "./lib/cjs/index.d.ts"
+      }
+    }
   },
   "main": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
   "type": "module",
   "scripts": {
-	"clean": "rm -rf ./lib",
-	"build:esm": "tsc --project ./tsconfig.esm.json",
-	"build:cjs": "tsc --project ./tsconfig.cjs.json && mv ./lib/cjs/index.js ./lib/cjs/index.cjs",
-	"build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "clean": "rm -rf ./lib",
+    "build:esm": "tsc --project ./tsconfig.esm.json",
+    "build:cjs": "tsc --project ./tsconfig.cjs.json && mv ./lib/cjs/index.js ./lib/cjs/index.cjs",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "dev:esm": "npm run clean && tsc --watch --project ./tsconfig.esm.json",
+    "dev:cjs": "npm run clean && tsc --watch --project ./tsconfig.cjs.json",
     "test": "vitest",
-	"prepack": "npm run build"
+    "prepack": "npm run build"
   },
-  "keywords": ["word", "txt", "string", "parser", "plain text", "doc", "docx"],
+  "keywords": [
+    "word",
+    "txt",
+    "string",
+    "parser",
+    "plain text",
+    "doc",
+    "docx"
+  ],
   "author": "Carlos Arena <carlostata.ca@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.1"
+  }
 }
