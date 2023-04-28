@@ -1,21 +1,21 @@
 {
   "name": "docx2str",
   "version": "0.0.0",
-  "description": "A simple library that converts .docx files to plain text in the browser (works also with node)",
+  "description": "A simple library that converts .docx files to plain text in the browser",
   "exports": {
     ".": {
       "import": {
         "default": "./lib/esm/index.js",
-        "types": "./lib/esm/index.d.ts"
+        "types": "./lib/esm/types/index.d.ts"
       },
       "require": {
         "default": "./lib/cjs/index.cjs",
-        "types": "./lib/cjs/index.d.ts"
+        "types": "./lib/cjs/types/index.d.ts"
       }
     }
   },
   "main": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
+  "types": "./lib/esm/types/index.d.ts",
   "type": "module",
   "scripts": {
     "clean": "rm -rf ./lib",
